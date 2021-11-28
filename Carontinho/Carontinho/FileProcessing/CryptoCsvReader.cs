@@ -9,7 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace Carontinho
+namespace Carontinho.FileProcessing
 {
     public class CryptoCsvReader : ICryptoCsvReader
     {
@@ -32,7 +32,6 @@ namespace Carontinho
 
             foreach (var file in files)
             {
-
                 _logger.LogInformation($"Mapping file: {file.Substring(_path.Length+1)}");
                 allMappedFiles.Add(getCsvModel(file));
             }

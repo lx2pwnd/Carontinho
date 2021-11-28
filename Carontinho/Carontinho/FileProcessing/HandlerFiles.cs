@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
-namespace Carontinho
+namespace Carontinho.FileProcessing
 {
     public class HandlerFiles : IHandlerFiles
     {

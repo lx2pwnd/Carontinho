@@ -1,10 +1,6 @@
-﻿using Carontinho.Model;
-using CsvHelper.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CsvHelper.Configuration;
 
-namespace Carontinho
+namespace Carontinho.Model
 {
     public class CryptoFileModelMapper : ClassMap<CryptoFileModel>
     {

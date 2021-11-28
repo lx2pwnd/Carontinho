@@ -1,4 +1,5 @@
-﻿using Carontinho.Interface;
+﻿using Carontinho.FileProcessing;
+using Carontinho.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -23,6 +24,7 @@ namespace Carontinho
                 services.AddSingleton<Startup>();
                 services.AddSingleton<IHandlerFiles, HandlerFiles>();
                 services.AddSingleton<ICryptoCsvReader, CryptoCsvReader>();
+                services.AddSingleton<IAssetFiltering, AssetFiltering>();
             });
     }
 }
