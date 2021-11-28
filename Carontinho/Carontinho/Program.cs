@@ -21,7 +21,7 @@ namespace Carontinho
             .ConfigureServices(services =>
             {
                 services.AddSingleton<Startup>();
-                services.AddSingleton<IReader, Reader>();
+                services.AddSingleton<IHandlerFiles, HandlerFiles>();
             });
     }
 }

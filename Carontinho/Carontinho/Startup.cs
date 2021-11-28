@@ -5,10 +5,10 @@ namespace Carontinho
 {
     public class Startup 
     {
-        private readonly IReader _reader;
+        private readonly IHandlerFiles _reader;
         private readonly ILogger<Startup> _logger;
 
-        public Startup(ILogger<Startup> logger, IReader reader)
+        public Startup(ILogger<Startup> logger, IHandlerFiles reader)
         {
             _logger = logger;
             _reader = reader;
@@ -16,7 +16,7 @@ namespace Carontinho
 
         public void Run()
         {
-            _reader.ReadCSV();
+            var files = _reader.GetFile();
         }
     }
 }
