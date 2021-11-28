@@ -8,10 +8,10 @@ namespace Carontinho
         private readonly IReader _reader;
         private readonly ILogger<Startup> _logger;
 
-        public Startup(ILogger<Startup> logger, IReader serviceA)
+        public Startup(ILogger<Startup> logger, IReader reader)
         {
             _logger = logger;
-            _reader = serviceA;
+            _reader = reader;
         }
 
         public void Run()
