@@ -4,6 +4,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace Carontinho
     {
         private readonly IHandlerFiles _handlerFiles;
         private readonly ILogger<CryptoCsvReader> _logger;
+        private readonly string _path = ConfigurationManager.AppSettings["FilePath"];
+
 
         public CryptoCsvReader(IHandlerFiles handlerFiles, ILogger<CryptoCsvReader> logger)
         {
@@ -21,15 +24,20 @@ namespace Carontinho
             _logger = logger;
         }
 
-        public void ReadCSV()
+        public IEnumerable<IEnumerable<CryptoFileModel>> ReadCSV()
         {
             var files = _handlerFiles.GetFiles();
 
+            var allMappedFiles = new List<List<CryptoFileModel>>();
+
             foreach (var file in files)
             {
-                _logger.LogInformation($"Elaborate {file}");
-                var model = getCsvModel(file);
+
+                _logger.LogInformation($"Mapping file: {file.Substring(_path.Length+1)}");
+                allMappedFiles.Add(getCsvModel(file));
             }
+
+            return allMappedFiles;
         }
 
         private List<CryptoFileModel> getCsvModel(string file)
