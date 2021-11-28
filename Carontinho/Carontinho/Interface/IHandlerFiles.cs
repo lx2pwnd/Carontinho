@@ -4,6 +4,6 @@ namespace Carontinho.Interface
 {
     public interface IHandlerFiles
     {
-        IEnumerable<string> GetFile();
+        IEnumerable<string> GetFiles();
     }
 }
