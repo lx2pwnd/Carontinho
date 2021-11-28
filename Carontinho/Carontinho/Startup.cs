@@ -5,10 +5,10 @@ namespace Carontinho
 {
     public class Startup 
     {
-        private readonly IReader _reader;
+        private readonly ICryptoCsvReader _reader;
         private readonly ILogger<Startup> _logger;
 
-        public Startup(ILogger<Startup> logger, IReader reader)
+        public Startup(ILogger<Startup> logger, ICryptoCsvReader reader)
         {
             _logger = logger;
             _reader = reader;

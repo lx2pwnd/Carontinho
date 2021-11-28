@@ -22,7 +22,7 @@ namespace Carontinho
             {
                 services.AddSingleton<Startup>();
                 services.AddSingleton<IHandlerFiles, HandlerFiles>();
-                services.AddSingleton<IReader, Reader>();
+                services.AddSingleton<ICryptoCsvReader, CryptoCsvReader>();
             });
     }
 }

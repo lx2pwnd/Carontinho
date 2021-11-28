@@ -25,7 +25,7 @@ namespace Carontinho
 
             var files = new List<string>();
             foreach (string file in fileEntries)
-                files.Add(file.Substring(_path.Length + 1));
+                files.Add(file);
             
             return files;
         }
