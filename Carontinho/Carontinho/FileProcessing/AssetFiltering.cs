@@ -10,14 +10,18 @@ namespace Carontinho.FileProcessing
     public class AssetFiltering : IAssetFiltering
     {
         private readonly ILogger<AssetFiltering> _logger;
+        private readonly ICryptoCsvReader _cryptoCsvReader;
 
-        public AssetFiltering(ILogger<AssetFiltering> logger)
+        public AssetFiltering(ILogger<AssetFiltering> logger, ICryptoCsvReader cryptoCsvReader)
         {
-            _logger = logger; 
+            _logger = logger;
+            _cryptoCsvReader = cryptoCsvReader;
         }
 
-        public IDictionary<string, List<CryptoFileModel>> FilterAllAssets(IEnumerable<IEnumerable<CryptoFileModel>> mappedFiles)
+        public IDictionary<string, List<CryptoFileModel>> FilterAllAssets()
         {
+            var mappedFiles = _cryptoCsvReader.ReadCSV();
+
             var assetDictionary = new Dictionary<string, List<CryptoFileModel>>();
 
             foreach (var mappedFile in mappedFiles)

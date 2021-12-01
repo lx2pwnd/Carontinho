@@ -6,6 +6,6 @@ namespace Carontinho.Interface
 {
     public interface IAssetFiltering
     {
-        IDictionary<string, List<CryptoFileModel>> FilterAllAssets(IEnumerable<IEnumerable<CryptoFileModel>> mappedFiles);
+        IDictionary<string, List<CryptoFileModel>> FilterAllAssets();
     }
 }

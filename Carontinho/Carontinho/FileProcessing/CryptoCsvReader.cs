@@ -15,7 +15,7 @@ namespace Carontinho.FileProcessing
     {
         private readonly IHandlerFiles _handlerFiles;
         private readonly ILogger<CryptoCsvReader> _logger;
-        private readonly string _path = ConfigurationManager.AppSettings["FilePath"];
+        private readonly string _path = ConfigurationManager.AppSettings["InputFilePath"];
 
 
         public CryptoCsvReader(IHandlerFiles handlerFiles, ILogger<CryptoCsvReader> logger)

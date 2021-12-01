@@ -25,6 +25,7 @@ namespace Carontinho
                 services.AddSingleton<IHandlerFiles, HandlerFiles>();
                 services.AddSingleton<ICryptoCsvReader, CryptoCsvReader>();
                 services.AddSingleton<IAssetFiltering, AssetFiltering>();
+                services.AddSingleton<ICryptoCsvWriter, CryptoCsvWriter>();
             });
     }
 }
