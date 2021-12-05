@@ -5,26 +5,28 @@ namespace Carontinho
 {
     public class Startup 
     {
-        private readonly ICryptoCsvReader _reader;
         private readonly ILogger<Startup> _logger;
         private readonly IAssetFiltering _assetFiltering;
+        private readonly ICryptoCsvWriter _cryptoCsvWriter;
 
         public Startup(
             ILogger<Startup> logger, 
-            ICryptoCsvReader reader,
-            IAssetFiltering assetFiltering
+            IAssetFiltering assetFiltering,
+            ICryptoCsvWriter cryptoCsvWriter
             )
         {
             _logger = logger;
-            _reader = reader;
             _assetFiltering = assetFiltering;
+            _cryptoCsvWriter = cryptoCsvWriter;
         }
 
         public void Run()
         {
             _logger.LogInformation($"*** Starting Elaboration ***");
-            var res = _reader.ReadCSV();
-            _assetFiltering.FilterAllAssets(res);
+            var mappedFiles = _assetFiltering.FilterAllAssets();
+
+            _logger.LogInformation("Starting generation files");
+            _cryptoCsvWriter.WriteCSV(mappedFiles);
         }
     }
 }

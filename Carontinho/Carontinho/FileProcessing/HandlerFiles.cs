@@ -9,7 +9,7 @@ namespace Carontinho.FileProcessing
     public class HandlerFiles : IHandlerFiles
     {
         private readonly ILogger<HandlerFiles> _logger;
-        private readonly string _path = ConfigurationManager.AppSettings["FilePath"];
+        private readonly string _path = ConfigurationManager.AppSettings["InputFilePath"];
 
         public HandlerFiles(ILogger<HandlerFiles> logger)
         {
@@ -21,6 +21,7 @@ namespace Carontinho.FileProcessing
             _logger.LogInformation("*** Searching for files in folder *** ");
 
             string[] fileEntries = Directory.GetFiles(_path);
+
             _logger.LogInformation($"*** Files found: {fileEntries.Length} ***");
 
             var files = new List<string>();
