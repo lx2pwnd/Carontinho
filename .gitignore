@@ -1,4 +1,9 @@
-Carontinho/.vs/*
-Carontinho/Carontinho/bin/Debug/*
-Carontinho/Carontinho/obj/*
-Carontinho/.vs/Carontinho/*
+.vs/*
+bin/*
+Carontinho/bin/*
+Carontinho/FilesFolder/Input/*
+Carontinho/FilesFolder/Output/*
+Carontinho/obj/*
+SQLScript/obj*
+obj/Docker/*
+obj/Debug/*

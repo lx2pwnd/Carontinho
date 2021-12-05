@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  carontinho:
+    image: carontinho
+    build:
+      context: .
+      dockerfile: Carontinho/Dockerfile
+
+  carontinhoSQLdb:
+    container_name: carontinhoSQLdb
+    image: "mcr.microsoft.com/mssql/server"
+    ports: 
+      - "1727:1433"
+    environment: 
+      - SA_PASSWORD=ForzaInterSempre69!
+      - ACCEPT_EULA=Y
